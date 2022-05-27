@@ -1,0 +1,22 @@
+async function - 
+ie. 
+(async function(){
+  let i = 0;
+  for(;i < 5000000000;i++){
+    
+  }
+  console.log(i)
+})()
+
+JS seems to postpone the contents of the async function until the event loop starts.
+they'll eventually run on the same main thread.
+and if there was some heavy task like the above for loop, then the application will not be interactable until main thread is completes the task.
+
+worker_threads - 
+javascript was and is a single threaded programming language.
+that being said a thread is nothing but a light-weight process.
+so the way JS handle multi-threading is by creating a new process/a new virtual machine.
+where the given task will run in parallel with the main thread.
+note-
+one cannot manipulate dom via worker threads, only main thread can do that.
+and therefore some window object's properties and functions donot work in a worker thread
